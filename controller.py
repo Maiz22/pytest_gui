@@ -23,7 +23,6 @@ class Controller:
         self.update_textbox_with_logs()
         self.set_default_path()
         self.init_bindings()
-        print(self.view.append_text_box_content("test123"))
 
     def init_bindings(self) -> None:
         self.view.select_path_btn_on_click(
@@ -44,7 +43,7 @@ class Controller:
         """Check the shared logger and update the Text box with new messages."""
         while shared_logger.messages:
             message = shared_logger.messages.pop(0)
-            self.view.append_text_box_content(message)
+            self.view.append_text_box_content(text=message[0], tag_name=message[1])
 
         # Call this method again after 100 milliseconds
         self.view.after(100, self.update_textbox_with_logs)

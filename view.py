@@ -32,6 +32,7 @@ class View(tk.Tk):
             fg="white",
         )
         self.text_box.pack(padx=5, pady=5)
+        self.text_box.tag_configure("default", foreground="white")
         self.text_box.tag_configure("success", foreground="green")
         self.text_box.tag_configure("warning", foreground="yellow")
         self.text_box.tag_configure("failure", foreground="red")
@@ -53,5 +54,6 @@ class View(tk.Tk):
 
     def append_text_box_content(self, text: str, tag_name: str = "success") -> None:
         """Append text to the Tkinter Text box and scroll to the end"""
-        self.text_box.insert(tk.END, text + "\n", tag_name)
+        self.text_box.insert(tk.END, text + "\n\n", tag_name)
         self.text_box.see(tk.END)
+        self.text_box.tag_add(tagName="default", index1=tk.END)

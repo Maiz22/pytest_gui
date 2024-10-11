@@ -1,0 +1,296 @@
+{
+    "created": 1728420042.4129562,
+    "duration": 0.1873481273651123,
+    "exitcode": 1,
+    "root": "C:\\Users\\matth\\Documents\\python_projects\\pytest_ssh",
+    "environment": {},
+    "summary": {
+        "passed": 3,
+        "failed": 3,
+        "total": 6,
+        "collected": 6
+    },
+    "collectors": [
+        {
+            "nodeid": "",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": ".",
+                    "type": "Dir"
+                }
+            ]
+        },
+        {
+            "nodeid": "assets",
+            "outcome": "passed",
+            "result": []
+        },
+        {
+            "nodeid": "html_reports",
+            "outcome": "passed",
+            "result": []
+        },
+        {
+            "nodeid": "interfaces/ssh",
+            "outcome": "passed",
+            "result": []
+        },
+        {
+            "nodeid": "interfaces",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "interfaces/ssh",
+                    "type": "Dir"
+                }
+            ]
+        },
+        {
+            "nodeid": "json_reports",
+            "outcome": "passed",
+            "result": []
+        },
+        {
+            "nodeid": "test_with_pytest.py",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "test_with_pytest.py::test_always_passes",
+                    "type": "Function",
+                    "lineno": 3
+                },
+                {
+                    "nodeid": "test_with_pytest.py::test_always_fails",
+                    "type": "Function",
+                    "lineno": 7
+                },
+                {
+                    "nodeid": "test_with_pytest.py::test_always_passes1",
+                    "type": "Function",
+                    "lineno": 11
+                },
+                {
+                    "nodeid": "test_with_pytest.py::test_always_fails1",
+                    "type": "Function",
+                    "lineno": 15
+                },
+                {
+                    "nodeid": "test_with_pytest.py::test_always_passes2",
+                    "type": "Function",
+                    "lineno": 19
+                },
+                {
+                    "nodeid": "test_with_pytest.py::test_always_fails2",
+                    "type": "Function",
+                    "lineno": 23
+                }
+            ]
+        },
+        {
+            "nodeid": ".",
+            "outcome": "passed",
+            "result": [
+                {
+                    "nodeid": "assets",
+                    "type": "Dir"
+                },
+                {
+                    "nodeid": "html_reports",
+                    "type": "Dir"
+                },
+                {
+                    "nodeid": "interfaces",
+                    "type": "Dir"
+                },
+                {
+                    "nodeid": "json_reports",
+                    "type": "Dir"
+                },
+                {
+                    "nodeid": "test_with_pytest.py",
+                    "type": "Module"
+                }
+            ]
+        }
+    ],
+    "tests": [
+        {
+            "nodeid": "test_with_pytest.py::test_always_passes",
+            "lineno": 3,
+            "outcome": "passed",
+            "keywords": [
+                "test_always_passes",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00034749999758787453,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0002744999947026372,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0002555999963078648,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "test_with_pytest.py::test_always_fails",
+            "lineno": 7,
+            "outcome": "failed",
+            "keywords": [
+                "test_always_fails",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00022360001457855105,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00030250000418163836,
+                "outcome": "failed",
+                "crash": {
+                    "path": "C:\\Users\\matth\\Documents\\python_projects\\pytest_ssh\\test_with_pytest.py",
+                    "lineno": 9,
+                    "message": "assert False"
+                },
+                "traceback": [
+                    {
+                        "path": "test_with_pytest.py",
+                        "lineno": 9,
+                        "message": "AssertionError"
+                    }
+                ],
+                "longrepr": "def test_always_fails():\n>       assert False\nE       assert False\n\ntest_with_pytest.py:9: AssertionError"
+            },
+            "teardown": {
+                "duration": 0.0003704999980982393,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "test_with_pytest.py::test_always_passes1",
+            "lineno": 11,
+            "outcome": "passed",
+            "keywords": [
+                "test_always_passes1",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00024210000992752612,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00022500002523884177,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.00024850000045262277,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "test_with_pytest.py::test_always_fails1",
+            "lineno": 15,
+            "outcome": "failed",
+            "keywords": [
+                "test_always_fails1",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00018339999951422215,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00027859999681822956,
+                "outcome": "failed",
+                "crash": {
+                    "path": "C:\\Users\\matth\\Documents\\python_projects\\pytest_ssh\\test_with_pytest.py",
+                    "lineno": 17,
+                    "message": "assert False"
+                },
+                "traceback": [
+                    {
+                        "path": "test_with_pytest.py",
+                        "lineno": 17,
+                        "message": "AssertionError"
+                    }
+                ],
+                "longrepr": "def test_always_fails1():\n>       assert False\nE       assert False\n\ntest_with_pytest.py:17: AssertionError"
+            },
+            "teardown": {
+                "duration": 0.0002447000006213784,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "test_with_pytest.py::test_always_passes2",
+            "lineno": 19,
+            "outcome": "passed",
+            "keywords": [
+                "test_always_passes2",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00019890000112354755,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.00020369997946545482,
+                "outcome": "passed"
+            },
+            "teardown": {
+                "duration": 0.0002538000117056072,
+                "outcome": "passed"
+            }
+        },
+        {
+            "nodeid": "test_with_pytest.py::test_always_fails2",
+            "lineno": 23,
+            "outcome": "failed",
+            "keywords": [
+                "test_always_fails2",
+                "test_with_pytest.py",
+                "pytest_ssh",
+                ""
+            ],
+            "setup": {
+                "duration": 0.00020139999105595052,
+                "outcome": "passed"
+            },
+            "call": {
+                "duration": 0.0003037000133190304,
+                "outcome": "failed",
+                "crash": {
+                    "path": "C:\\Users\\matth\\Documents\\python_projects\\pytest_ssh\\test_with_pytest.py",
+                    "lineno": 25,
+                    "message": "assert False"
+                },
+                "traceback": [
+                    {
+                        "path": "test_with_pytest.py",
+                        "lineno": 25,
+                        "message": "AssertionError"
+                    }
+                ],
+                "longrepr": "def test_always_fails2():\n>       assert False\nE       assert False\n\ntest_with_pytest.py:25: AssertionError"
+            },
+            "teardown": {
+                "duration": 0.00033730000723153353,
+                "outcome": "passed"
+            }
+        }
+    ]
+}

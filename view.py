@@ -11,10 +11,17 @@ class View(ctk.CTk):
         self.title("PyTestGUI")
         self.resizable(width=False, height=False)
 
-        # setup frame
+        # top frames
         self.setup_frame = ctk.CTkFrame(self, border_width=1)
         self.setup_frame.pack(padx=10, pady=(5, 0), fill="both")
+        self.command_line_args_frame = ctk.CTkFrame(self, border_width=1)
+        self.command_line_args_frame.pack(padx=10, pady=(5, 0), fill="both")
+        self.html_report_frame = ctk.CTkFrame(self, border_width=1)
+        self.html_report_frame.pack(padx=10, pady=(5, 0), fill="both")
+        self.json_report_frame = ctk.CTkFrame(self, border_width=1)
+        self.json_report_frame.pack(padx=10, pady=(5, 0), fill="both")
 
+        # testcase path widgets
         self.path_label = ctk.CTkLabel(
             self.setup_frame, text="Testcase Directory @", width=180
         )
@@ -24,15 +31,22 @@ class View(ctk.CTk):
             self.setup_frame, textvariable=self.cur_path, width=420, wraplength=420
         )
         self.cur_path_label.pack(side="left", padx=10, pady=5)
-        self.select_path_btn = ctk.CTkButton(self.setup_frame, text="change")
-        self.select_path_btn.pack(side="left", padx=10, pady=5)
+        # self.select_path_btn = ctk.CTkButton(self.setup_frame, text="change")
+        # self.select_path_btn.pack(side="left", padx=10, pady=5)
 
-        # test option frame
+        # command line arg widgets
+        self.command_line_label = ctk.CTkLabel(
+            self.command_line_args_frame, text="Command Line Arguments", width=180
+        )
+        self.command_line_label.pack(side="left", padx=10, pady=5)
+        self.command_line_args = ctk.CTkEntry(
+            self.command_line_args_frame,
+            placeholder_text="Enter pytest arguments, e.g.: -v, -r",
+            width=580,
+        )
+        self.command_line_args.pack(side="left", padx=10, pady=5)
 
-        self.html_report_frame = ctk.CTkFrame(self, border_width=1)
-        self.html_report_frame.pack(padx=10, pady=(5, 0), fill="both")
-        self.json_report_frame = ctk.CTkFrame(self, border_width=1)
-        self.json_report_frame.pack(padx=10, pady=(5, 0), fill="both")
+        # html report widgets
         self.html_report_selected = tk.BooleanVar()
         self.html_report_option = ctk.CTkCheckBox(
             self.html_report_frame,
@@ -53,6 +67,8 @@ class View(ctk.CTk):
         self.html_report_path_label.pack(side="left", padx=10, pady=5)
         self.html_report_path_btn = ctk.CTkButton(self.html_report_frame, text="change")
         self.html_report_path_btn.pack(side="left", padx=10, pady=5)
+
+        # json report widgets
         self.json_report_selected = tk.BooleanVar()
         self.json_report_option = ctk.CTkCheckBox(
             self.json_report_frame,
@@ -96,6 +112,16 @@ class View(ctk.CTk):
 
     def select_path_btn_on_click(self, callback) -> None:
         self.select_path_btn.bind(
+            "<Button-1>", lambda event, fd=fd: callback(event, fd)
+        )
+
+    def select_html_report_path_btn_on_click(self, callback) -> None:
+        self.html_report_path_btn.bind(
+            "<Button-1>", lambda event, fd=fd: callback(event, fd)
+        )
+
+    def select_json_report_path_btn_on_click(self, callback) -> None:
+        self.json_report_path_btn.bind(
             "<Button-1>", lambda event, fd=fd: callback(event, fd)
         )
 

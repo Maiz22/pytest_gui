@@ -2,3 +2,6 @@ venv/
 .vscode/
 .pytest_cache/
 __pycache__/
+config/
+html_reports/
+json_reports/

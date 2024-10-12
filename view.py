@@ -98,6 +98,8 @@ class View(ctk.CTk):
             self.output_frame, height=400, width=800, border_width=1
         )
         self.text_box.pack()
+
+        # define textbox tags
         self.text_box.tag_config("default", foreground="white")
         self.text_box.tag_config("success", foreground="green")
         self.text_box.tag_config("warning", foreground="yellow")
@@ -106,30 +108,43 @@ class View(ctk.CTk):
         # control frame
         self.control_frame = ctk.CTkFrame(self, border_width=1)
         self.control_frame.pack(padx=10, pady=(5, 10), fill="both")
-
         self.start_test_btn = ctk.CTkButton(self.control_frame, text="Start")
         self.start_test_btn.pack(padx=5, pady=5, anchor="center")
 
     def select_path_btn_on_click(self, callback) -> None:
+        """
+        Binds buttons on click event to a callback function.
+        """
         self.select_path_btn.bind(
             "<Button-1>", lambda event, fd=fd: callback(event, fd)
         )
 
     def select_html_report_path_btn_on_click(self, callback) -> None:
+        """
+        Binds buttons on click event to a callback function.
+        """
         self.html_report_path_btn.bind(
             "<Button-1>", lambda event, fd=fd: callback(event, fd)
         )
 
     def select_json_report_path_btn_on_click(self, callback) -> None:
+        """
+        Bind buttons on click event to a callback function.
+        """
         self.json_report_path_btn.bind(
             "<Button-1>", lambda event, fd=fd: callback(event, fd)
         )
 
     def start_test_btn_on_click(self, callback) -> None:
+        """
+        Bind buttons on click event to a callback function.
+        """
         self.start_test_btn.bind("<Button-1>", callback)
 
     def append_text_box_content(self, text: str, tag_name: str = "default") -> None:
-        """Append text to the Tkinter Text box and scroll to the end"""
+        """
+        Append text to the Tkinter Text box and scroll to the end.
+        """
         self.text_box.insert(tk.END, text + "\n\n", tag_name)
         self.text_box.see(tk.END)
         self.text_box.tag_add(tagName="default", index1=tk.END)

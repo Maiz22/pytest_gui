@@ -44,7 +44,8 @@ class Controller:
         path = os.path.normpath(f"{self.path}/tests/")
         if not os.path.exists(path):
             os.makedirs(path)
-        self.view.cur_path.set(path)
+        self.view.testcase_path_widget.path.set(path)
+        # self.view.cur_path.set(path)
 
     def set_default_html_report_path(self) -> None:
         """
@@ -54,7 +55,8 @@ class Controller:
         path = os.path.normpath(f"{self.path}/html_reports/")
         if not os.path.exists(path):
             os.makedirs(path)
-        self.view.html_report_path.set(path)
+        # self.view.html_report_path.set(path)
+        self.view.html_report_widget.path.set(path)
 
     def set_default_json_report_path(self) -> None:
         """
@@ -64,7 +66,8 @@ class Controller:
         path = os.path.normpath(f"{self.path}/json_reports/")
         if not os.path.exists(path):
             os.makedirs(path)
-        self.view.json_report_path.set(path)
+        # self.view.json_report_path.set(path)
+        self.view.json_report_widget.path.set(path)
 
     def select_html_report_path(self, event, fd) -> None:
         """
@@ -73,7 +76,8 @@ class Controller:
         """
         path = fd.askdirectory().strip()
         if path != "":
-            self.view.html_report_path.set(path)
+            # self.view.html_report_path.set(path)
+            self.view.html_report_widget.path.set(path)
             self.view.append_text_box_content(text=f"Set HTML report path to: {path}")
 
     def select_json_report_path(self, event, fd) -> None:
@@ -83,7 +87,8 @@ class Controller:
         """
         path = fd.askdirectory().strip()
         if path != "":
-            self.view.json_report_path.set(path)
+            # self.view.json_report_path.set(path)
+            self.view.json_report_widget.path.set(path)
             self.view.append_text_box_content(text=f"Set JSON report path to: {path}")
 
     # currently not used due to the conftest hook
@@ -94,7 +99,8 @@ class Controller:
         """
         path = fd.askdirectory().strip()
         if path != "":
-            self.view.cur_path.set(path)
+            # self.view.cur_path.set(path)
+            self.view.testcase_path_widget.path.set(path)
             self.view.append_text_box_content(text=f"Set test directory to: {path}")
 
     def update_textbox_with_logs(self) -> None:
@@ -124,10 +130,10 @@ class Controller:
         Adds the html report command line argument to the arguments
         if the option has been selected in the view.
         """
-        if not self.view.html_report_selected.get():
+        if not self.view.html_report_widget.report_selected.get():
             return args
         args.append(
-            f"--html={self.view.html_report_path.get()}/report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.html"
+            f"--html={self.view.html_report_widget.path.get()}/report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.html"
         )
         args.append("--self-contained-html")
         return args
@@ -137,11 +143,11 @@ class Controller:
         Adds the json report command line argument to the arguments
         if the option has been selected in the view.
         """
-        if not self.view.json_report_selected.get():
+        if not self.view.json_report_widget.report_selected.get():
             return args
         args.append("--json-report")
         args.append(
-            f"--json-report-file={self.view.json_report_path.get()}/report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json"
+            f"--json-report-file={self.view.json_report_widget.path.get()}/report_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json"
         )
         args.append("--json-report-indent=4")
         return args
@@ -154,7 +160,7 @@ class Controller:
         args = self.get_command_line_args()
         args = self.add_html_report(args)
         args = self.add_json_report(args)
-        path = self.view.cur_path.get()
+        path = self.view.testcase_path_widget.path.get()
         self.view.append_text_box_content(text=f"Start Test @ {path}")
         run_tests_in_single_thread(args=args, path=path)
 

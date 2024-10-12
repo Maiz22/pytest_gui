@@ -5,6 +5,12 @@ from shared_state import shared_logger
 test_results = {"passed": [], "failed": [], "skipped": []}
 
 
+def clear_test_results():
+    test_results["passed"].clear()
+    test_results["failed"].clear()
+    test_results["skipped"].clear()
+
+
 def pytest_runtest_logreport(report):
     """
     Capture test output and store it in the shared logger.
@@ -51,3 +57,4 @@ def pytest_sessionfinish(session, exitstatus):
     for result in test_results["skipped"]:
         shared_logger.log(f"  - {result}", tag="warning")
     shared_logger.log(f"\nExit status: {exitstatus}", tag="default")
+    clear_test_results()

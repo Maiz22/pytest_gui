@@ -4,6 +4,7 @@ import os
 from pytest_executer import run_tests_in_single_thread
 from shared_state import shared_logger
 from datetime import datetime
+from shutil import copy
 
 if TYPE_CHECKING:
     from view import View

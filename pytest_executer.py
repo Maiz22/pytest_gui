@@ -18,6 +18,7 @@ def run_tests_in_single_thread(
         raise Exception("No test directory selected")
     args.append(path)
     new_thread = threading.Thread(
-        target=lambda pytest_args=args: pytest.main(pytest_args), daemon=True
+        target=lambda pytest_args=args: pytest.main(pytest_args, plugins=[]),
+        daemon=True,
     )
     new_thread.start()

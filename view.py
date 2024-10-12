@@ -13,10 +13,7 @@ class View(ctk.CTk):
         self.resizable(width=False, height=False)
 
         self.testcase_path_widget = SelectPathWidget(
-            self,
-            path_type="TestCases Path",
-            has_checkbox=False,
-            btn_state="disabled",
+            self, path_type="TestCases Path", has_checkbox=False, btn_state="disabled"
         )
         self.testcase_path_widget.pack(padx=10, pady=(5, 0), fill="both")
 
@@ -68,7 +65,7 @@ class View(ctk.CTk):
         """
         Binds buttons on click event to a callback function.
         """
-        self.json_report_widget.change_path_btn.bind(
+        self.testcase_path_widget.change_path_btn.bind(
             "<Button-1>", lambda event, fd=fd: callback(event, fd)
         )
 

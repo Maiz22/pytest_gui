@@ -58,8 +58,17 @@ class View(ctk.CTk):
         # control frame
         self.control_frame = ctk.CTkFrame(self, border_width=1)
         self.control_frame.pack(padx=10, pady=(5, 10), fill="both")
-        self.start_test_btn = ctk.CTkButton(self.control_frame, text="Start")
-        self.start_test_btn.pack(padx=5, pady=5, anchor="center")
+        self.inner_control_frame = ctk.CTkFrame(self.control_frame)
+        self.inner_control_frame.pack(anchor="center", pady=2)
+        self.start_test_btn = ctk.CTkButton(self.inner_control_frame, text="Start")
+        self.start_test_btn.pack(padx=5, pady=5, anchor="center", side="left")
+        self.clear_btn = ctk.CTkButton(
+            self.inner_control_frame, text="Clear", command=self.clear_text_box
+        )
+        self.clear_btn.pack(padx=5, pady=5, anchor="center", side="left")
+
+    def clear_text_box(self) -> None:
+        self.text_box.delete("1.0", "end")
 
     def select_path_btn_on_click(self, callback) -> None:
         """

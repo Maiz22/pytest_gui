@@ -5,3 +5,6 @@ __pycache__/
 config/
 html_reports/
 json_reports/
+test_environment/
+tests/ssh_tests/
+interfaces/
